@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ui.MainAdm">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="378.0" prefWidth="571.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Management">
+               <content>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Whitelist">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="129.0" layoutY="71.0" text="Date" />
+                                    <Label layoutX="126.0" layoutY="123.0" text="Name" />
+                                    <DatePicker layoutX="193.0" layoutY="67.0" />
+                                    <ChoiceBox layoutX="193.0" layoutY="119.0" prefWidth="150.0" />
+                                    <Label layoutX="128.0" layoutY="180.0" text="sit" />
+                                    <ChoiceBox layoutX="193.0" layoutY="176.0" prefWidth="150.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab text="Create Admin">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="104.0" layoutY="54.0" text="First Name" />
+                                    <Label layoutX="104.0" layoutY="81.0" text="Last Name" />
+                                    <Label layoutX="104.0" layoutY="140.0" text="Uesername" />
+                                    <Label layoutX="104.0" layoutY="109.0" text="Role" />
+                                    <Label layoutX="104.0" layoutY="166.0" text="Password" />
+                                    <Label layoutX="104.0" layoutY="196.0" text="Re-passwrod" />
+                                    <Label layoutX="104.0" layoutY="29.0" text="Admin ID" />
+                                    <Label layoutX="104.0" layoutY="227.0" text="Secret question" />
+                                    <TextField layoutX="217.0" layoutY="24.0" />
+                                    <TextField layoutX="217.0" layoutY="49.0" />
+                                    <TextField layoutX="217.0" layoutY="76.0" />
+                                    <TextField layoutX="217.0" layoutY="104.0" />
+                                    <TextField layoutX="217.0" layoutY="135.0" />
+                                    <PasswordField layoutX="217.0" layoutY="162.0" />
+                                    <PasswordField layoutX="217.0" layoutY="192.0" />
+                                    <ChoiceBox layoutX="219.0" layoutY="223.0" prefHeight="23.0" prefWidth="159.0" />
+                                    <Label layoutX="104.0" layoutY="254.0" text="Label" />
+                                    <TextField layoutX="217.0" layoutY="250.0" />
+                                    <Button layoutX="219.0" layoutY="283.0" mnemonicParsing="false" text="Create" />
+                                 </children>
+                              </AnchorPane>
+                           </content></Tab>
+                        <Tab text="Delete Admin">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="200.0" layoutY="217.0" mnemonicParsing="false" text="Delete" />
+                                    <Label layoutX="124.0" layoutY="86.0" text="Name" />
+                                    <ChoiceBox layoutX="220.0" layoutY="82.0" prefWidth="150.0" />
+                                 </children></AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </TabPane>
+               </content></Tab>
+          <Tab text="Desk Detail">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker layoutX="14.0" layoutY="14.0" />
+                        <Button layoutX="60.0" layoutY="61.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="135.0" layoutY="61.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="14.0" layoutY="140.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="14.0" layoutY="183.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="14.0" layoutY="224.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="14.0" layoutY="271.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="183.0" layoutY="112.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="183.0" layoutY="152.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="135.0" layoutY="294.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="231.0" layoutY="294.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="330.0" layoutY="294.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="275.0" layoutY="195.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="358.0" layoutY="195.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="444.0" layoutY="236.0" mnemonicParsing="false" text="Button" />
+                        <Button layoutX="444.0" layoutY="283.0" mnemonicParsing="false" text="Button" />
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Release Bookings">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Generate report">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane layoutX="-242.0" layoutY="-200.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
