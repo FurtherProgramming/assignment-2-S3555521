@@ -5,14 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
-import main.Second;
-import main.model.Empoyee;
+import main.Register;
 import main.model.LoginModel;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
 
 
 import java.net.URL;
@@ -59,8 +53,8 @@ public class LoginController implements Initializable {
 
     public void Register(ActionEvent event) throws Exception {
 
-        main.Second second = new Second();
-        second.showWindow();
+        Register register = new Register();
+        register.showWindow();
     }
 
     public void Forget(ActionEvent event) throws Exception {

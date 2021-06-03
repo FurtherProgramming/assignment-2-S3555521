@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Second extends Application {
+public class Register extends Application {
 
     Stage stage=new Stage();
 
