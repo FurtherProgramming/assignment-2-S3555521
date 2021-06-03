@@ -5,7 +5,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import main.Second;
+import main.model.Empoyee;
 import main.model.LoginModel;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.JavaFXBuilderFactory;
+
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -23,30 +31,47 @@ public class LoginController implements Initializable {
 
     // Check database connection
     @Override
-    public void initialize(URL location, ResourceBundle resources){
-        if (loginModel.isDbConnected()){
+    public void initialize(URL location, ResourceBundle resources) {
+        if (loginModel.isDbConnected()) {
             isConnected.setText("Connected");
-        }else{
+        } else {
             isConnected.setText("Not Connected");
         }
 
     }
+
     /* login Action method
        check if user input is the same as database.
      */
-    public void Login(ActionEvent event){
+    public void Login(ActionEvent event) {
 
         try {
-            if (loginModel.isLogin(txtUsername.getText(),txtPassword.getText())){
+            if (loginModel.isLogin(txtUsername.getText(), txtPassword.getText())) {
 
                 isConnected.setText("Logged in successfully");
-            }else{
+            } else {
                 isConnected.setText("username and password is incorrect");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+    public void Register(ActionEvent event) throws Exception {
+
+        main.Second second = new Second();
+        second.showWindow();
+    }
+
+    public void Forget(ActionEvent event) throws Exception {
+
+
+    }
+
+
+
+
+}
 
 
 
@@ -55,4 +80,3 @@ public class LoginController implements Initializable {
 
 
 
-}
