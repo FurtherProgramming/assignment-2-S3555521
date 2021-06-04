@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -11,19 +13,36 @@
       <Label layoutX="151.0" layoutY="132.0" text="Role" />
       <Label layoutX="151.0" layoutY="172.0" text="Username" />
       <Label layoutX="153.0" layoutY="208.0" text="Password" />
-      <TextField fx:id="txtEm_id" layoutX="287.0" layoutY="20.0" />
+      <TextField fx:id="txtEm_id" layoutX="287.0" layoutY="20.0" text="0" />
       <TextField fx:id="txtFname" layoutX="287.0" layoutY="56.0" />
       <TextField fx:id="txtLname" layoutX="287.0" layoutY="91.0" />
-      <TextField layoutX="287.0" layoutY="307.0" />
+      <TextField fx:id="txtAnswer" layoutX="287.0" layoutY="307.0" />
       <TextField fx:id="txtUname" layoutX="289.0" layoutY="168.0" />
-      <ChoiceBox fx:id="txtRole" layoutX="289.0" layoutY="128.0" prefHeight="23.0" prefWidth="161.0" />
+      <ComboBox fx:id="txtRole" layoutX="289.0" layoutY="128.0" prefHeight="23.0" prefWidth="161.0" value="staff">
+              <items>
+                 <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="staff" />
+                    <String fx:value="manager" />
+                    <String fx:value="trainee" />
+                 </FXCollections>
+              </items>
+      </ComboBox>
       <Label layoutX="154.0" layoutY="275.0" text="Secret question" />
       <Label layoutX="156.0" layoutY="311.0" text="Answer" />
       <PasswordField fx:id="txtPassword1" layoutX="289.0" layoutY="204.0" />
       <PasswordField fx:id="txtPassword2" layoutX="289.0" layoutY="237.0" />
       <Label layoutX="153.0" layoutY="241.0" text="Repeat Password" />
-      <ChoiceBox fx:id="txtQuestion" layoutX="289.0" layoutY="271.0" prefHeight="23.0" prefWidth="161.0" />
+      <ComboBox fx:id="txtQuestion" layoutX="289.0" layoutY="271.0" prefHeight="23.0" prefWidth="161.0" value="Favorite color?">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Favorite color?" />
+               <String fx:value="Favorite food?" />
+               <String fx:value="Favorite number?" />
+            </FXCollections>
+         </items>
+      </ComboBox>
       <Button layoutX="196.0" layoutY="345.0" mnemonicParsing="false" onAction="#Register" text="Confirm" />
       <Button layoutX="342.0" layoutY="345.0" mnemonicParsing="false" text="Back" />
+      <Label fx:id="status" layoutX="35.0" layoutY="368.0" text="Status" />
    </children>
 </AnchorPane>

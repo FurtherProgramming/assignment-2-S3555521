@@ -1,13 +1,14 @@
 package main.controller;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.event.ActionEvent;
-import main.model.LoginModel;
+import main.model.RegisterModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,22 +25,29 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField txtEm_id;
     @FXML
-    private ChoiceBox txtRole;
+    private ComboBox txtRole;
     @FXML
     private PasswordField txtPassword1;
     @FXML
     private PasswordField txtPassword2;
     @FXML
-    private ChoiceBox txtQuestion;
+    private ComboBox txtQuestion;
+    @FXML
+    private TextField txtAnswer;
+    @FXML
+    private Label status;
 
     private String fName;
     private String lName;
     private String uName;
     private int em_id;
     private String role;
-    private String qunestion;
+    private String question;
     private String password1;
     private String password2;
+    private String answer;
+
+    public RegisterModel registerModel = new RegisterModel();
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,10 +60,22 @@ public class RegisterController implements Initializable {
         em_id = Integer.parseInt(txtEm_id.getText());
         password1 = txtPassword1.getText();
         password2 = txtPassword2.getText();
-        //role=txtRole.get
-        //question=txtQunestion.get
+        role = txtRole.getValue().toString();
+        question = txtQuestion.getValue().toString();
+        answer = txtAnswer.getText();
 
+        if (fName == null || lName == null || uName == null || em_id == 0 || password1 == null || password2 == null || answer == null) {
+            status.setText("There can not be blanks");
 
+        } else {
+            if (password1.equals(password2)) {
+                registerModel.toRegister(em_id, fName, lName, role, uName, password1, question, answer);
+                status.setText("Success!");
+            }
+            else {
+                status.setText("Passwords are not same");
+            }
+        }
     }
 }
 

@@ -7,8 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import main.Register;
 import main.model.LoginModel;
-
-
+import javafx.stage.Stage;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -43,6 +42,7 @@ public class LoginController implements Initializable {
             if (loginModel.isLogin(txtUsername.getText(), txtPassword.getText())) {
 
                 isConnected.setText("Logged in successfully");
+
             } else {
                 isConnected.setText("username and password is incorrect");
             }
@@ -55,6 +55,12 @@ public class LoginController implements Initializable {
 
         Register register = new Register();
         register.showWindow();
+
+        //Stage stage = (Stage) isConnected.getScene().getWindow();
+        //stage.close();
+
+
+
     }
 
     public void Forget(ActionEvent event) throws Exception {

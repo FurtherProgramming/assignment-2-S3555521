@@ -12,6 +12,7 @@ public class Register extends Application {
 
     @Override
     public void start(Stage secondStage) throws Exception{
+        secondStage.setResizable(false);
         secondStage.setTitle("Register");
         Parent root = FXMLLoader.load(getClass().getResource("ui/register.fxml"));
         Scene scene = new Scene(root);
