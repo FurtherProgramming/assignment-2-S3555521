@@ -42,7 +42,7 @@
          </items>
       </ComboBox>
       <Button layoutX="196.0" layoutY="345.0" mnemonicParsing="false" onAction="#Register" text="Confirm" />
-      <Button layoutX="342.0" layoutY="345.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="342.0" layoutY="345.0" mnemonicParsing="false" onAction="#Back" text="Back" />
       <Label fx:id="status" layoutX="35.0" layoutY="368.0" text="Status" />
    </children>
 </AnchorPane>

@@ -5,9 +5,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import main.Forget;
 import main.Register;
 import main.model.LoginModel;
-import javafx.stage.Stage;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -64,6 +64,10 @@ public class LoginController implements Initializable {
     }
 
     public void Forget(ActionEvent event) throws Exception {
+
+        Forget forget = new Forget();
+        forget.showWindow();
+
 
 
     }

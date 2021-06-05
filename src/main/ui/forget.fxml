@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ForgetController">
+   <children>
+      <Label layoutX="48.0" layoutY="43.0" text="User Name" />
+      <Label layoutX="48.0" layoutY="144.0" text="Question" />
+      <Label fx:id="question" layoutX="136.0" layoutY="143.0" />
+      <Button layoutX="166.0" layoutY="81.0" mnemonicParsing="false" onAction="#confirmUname" text="Show question" />
+      <TextField fx:id="txtUname" layoutX="136.0" layoutY="39.0" />
+      <TextField fx:id="txtAnswer" layoutX="136.0" layoutY="188.0" />
+      <Label layoutX="48.0" layoutY="192.0" text="Answer" />
+      <Button layoutX="189.0" layoutY="231.0" mnemonicParsing="false" onAction="#confirmAnswer" text="Confirm" />
+      <Label fx:id="status" layoutX="17.0" layoutY="271.0" text="Status" />
+   </children>
+</AnchorPane>

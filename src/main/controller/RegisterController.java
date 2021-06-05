@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.event.ActionEvent;
 import main.model.RegisterModel;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -77,5 +78,11 @@ public class RegisterController implements Initializable {
             }
         }
     }
+    public void Back(ActionEvent Register) {
+        Stage stage = (Stage) status.getScene().getWindow();
+        stage.close();
+
+    }
+
 }
 
