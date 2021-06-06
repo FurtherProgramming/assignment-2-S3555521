@@ -11,7 +11,7 @@ public class LoginModel {
 
     Connection connection;
 
-    public LoginModel(){
+    public LoginModel() {
 
         connection = SQLConnection.connect();
         if (connection == null)
@@ -19,18 +19,17 @@ public class LoginModel {
 
     }
 
-    public Boolean isDbConnected(){
+    public Boolean isDbConnected() {
         try {
             return !connection.isClosed();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     public Boolean isLogin(String user, String pass) throws SQLException {
         PreparedStatement preparedStatement = null;
-        ResultSet resultSet=null;
+        ResultSet resultSet = null;
         String query = "select * from employee where username = ? and password= ?";
         try {
 
@@ -41,20 +40,38 @@ public class LoginModel {
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return true;
-            }
-            else{
+            } else {
                 return false;
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return false;
-        }finally {
-           preparedStatement.close();
-           resultSet.close();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
         }
 
     }
 
+    public Boolean isAdmin(String user) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String query = "select * from employee where username = ?";
+        try {
 
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getBoolean("admin")) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
 }
