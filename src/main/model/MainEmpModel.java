@@ -7,10 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ForgetModel {
+public class MainEmpModel {
     Connection connection;
 
-    public ForgetModel() {
+    public MainEmpModel() {
 
         connection = SQLConnection.connect();
         if (connection == null)
@@ -18,28 +18,7 @@ public class ForgetModel {
 
     }
 
-    public Boolean isUser(String user) throws SQLException {
-        String query = "select * from employee where username = ?";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, user);
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        } finally {
-            preparedStatement.close();
-            resultSet.close();
-        }
-    }
-
-    public String getQuestion(String user) throws SQLException {
+    public String getId(String user) throws SQLException {
         String query = "select * from employee where username = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -48,8 +27,8 @@ public class ForgetModel {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user);
             resultSet = preparedStatement.executeQuery();
-            String answer = resultSet.getString("question");
-            return answer;
+            String id = resultSet.getString("id");
+            return id;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
@@ -60,29 +39,67 @@ public class ForgetModel {
         return query;
     }
 
-    public Boolean isCorrect(String user, String answer) throws SQLException {
+    public String getName(String user) throws SQLException {
+        String query = "select * from employee where username = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String query = "select * from employee where username = ? and answer= ?";
         try {
 
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user);
-            preparedStatement.setString(2, answer);
-
             resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
+            String name = resultSet.getString("name");
+            return name;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         } finally {
             preparedStatement.close();
             resultSet.close();
         }
 
+        return query;
+    }
+
+    public String getSname(String user) throws SQLException {
+        String query = "select * from employee where username = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user);
+            resultSet = preparedStatement.executeQuery();
+            String sname = resultSet.getString("sure name");
+            return sname;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return query;
+    }
+
+    public String getRole(String user) throws SQLException {
+        String query = "select * from employee where username = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user);
+            resultSet = preparedStatement.executeQuery();
+            String role = resultSet.getString("role");
+            return role;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return query;
     }
 
 }
