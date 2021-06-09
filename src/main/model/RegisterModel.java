@@ -1,6 +1,6 @@
 package main.model;
 
-import javafx.event.ActionEvent;
+
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -9,8 +9,10 @@ import java.sql.SQLException;
 
 public class RegisterModel {
     static PreparedStatement sql;
+    static PreparedStatement bl;
     Connection connection;
     String insert = "insert into employee values(?,?,?,?,?,?,?,?,false)";
+    String blk = "insert into blacklist values(?,?,?,true)";
 
     public RegisterModel(){
 
@@ -20,6 +22,7 @@ public class RegisterModel {
     }
 
     public void toRegister( int em_id, String fName, String lName,String role, String uName, String password, String question, String answer){
+        PreparedStatement sql = null;
         try{
             sql=connection.prepareStatement(insert);
             sql.setInt(1,em_id);
@@ -33,6 +36,16 @@ public class RegisterModel {
             sql.executeUpdate();
 
 
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void toBlacklist(int id){
+        try{
+            bl = connection.prepareStatement(blk);
+            bl.setInt(1,id);
+            bl.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

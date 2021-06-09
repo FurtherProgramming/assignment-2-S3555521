@@ -4,9 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import main.model.ForgetModel;
 import main.model.MainEmpModel;
 import main.SetPassword;
 import java.net.URL;
@@ -17,7 +15,6 @@ public class AccountController implements Initializable{
 
     MainEmpModel mainEmpModel = new MainEmpModel();
     LoginController loginController = new LoginController();
-    ForgetModel forgetModel = new ForgetModel();
     public static String current_user;
 
 
@@ -32,16 +29,14 @@ public class AccountController implements Initializable{
     private Label labSname;
     @FXML
     private Label labRole;
-    @FXML
-    private Label passwordStatus;
-    @FXML
-    private TextField txtPassword1;
-    @FXML
-    private TextField txtPassword2;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         current_user = loginController.current_user();
+        if (current_user==null){
+            System.exit(1);
+        }
 
         try {
             labId.setText(mainEmpModel.getId(current_user));

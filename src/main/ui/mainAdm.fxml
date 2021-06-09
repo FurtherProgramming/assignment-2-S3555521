@@ -4,7 +4,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainAdmController">
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainAdmController">
    <children>
       <TabPane layoutX="14.0" layoutY="14.0" prefHeight="378.0" prefWidth="571.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -12,20 +12,6 @@
                <content>
                   <TabPane prefHeight="200.0" prefWidth="571.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="Whitelist">
-                           <content>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Label layoutX="129.0" layoutY="71.0" text="Date" />
-                                    <Label layoutX="126.0" layoutY="123.0" text="Name" />
-                                    <DatePicker layoutX="193.0" layoutY="67.0" />
-                                    <ChoiceBox layoutX="193.0" layoutY="119.0" prefWidth="150.0" />
-                                    <Label layoutX="128.0" layoutY="180.0" text="sit" />
-                                    <ChoiceBox layoutX="193.0" layoutY="176.0" prefWidth="150.0" />
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </Tab>
                       <Tab text="Manage Admin/Employee">
                            <content>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -58,9 +44,25 @@
                                     <Label layoutX="403.0" layoutY="98.0" text="Employee ID is index value" />
                                     <Label layoutX="405.0" layoutY="133.0" text="It can not be change" />
                                     <Label layoutX="403.0" layoutY="166.0" text="If you want to update" />
+                                    <Button layoutX="491.0" layoutY="18.0" mnemonicParsing="false" text="Choose" />
                                  </children>
                               </AnchorPane>
                            </content></Tab>
+                      <Tab text="Whitelist">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="129.0" layoutY="71.0" text="Date" />
+                                    <Label layoutX="126.0" layoutY="123.0" text="ID" />
+                                    <DatePicker layoutX="193.0" layoutY="67.0" />
+                                    <ChoiceBox layoutX="193.0" layoutY="119.0" prefWidth="150.0" />
+                                    <Label layoutX="128.0" layoutY="180.0" text="sit" />
+                                    <ChoiceBox layoutX="193.0" layoutY="176.0" prefWidth="150.0" />
+                                    <Button layoutX="241.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
                     </tabs>
                      <effect>
                         <Blend />
@@ -89,6 +91,8 @@
                         <Button layoutX="444.0" layoutY="236.0" mnemonicParsing="false" text="12" />
                         <Button layoutX="444.0" layoutY="283.0" mnemonicParsing="false" text="11" />
                         <Button layoutX="216.0" layoutY="14.0" mnemonicParsing="false" text="Choose" />
+                        <Button layoutX="303.0" layoutY="14.0" mnemonicParsing="false" text="Create Normol" />
+                        <Button layoutX="432.0" layoutY="14.0" mnemonicParsing="false" text="Create COVID" />
                      </children>
                   </AnchorPane>
                </content></Tab>

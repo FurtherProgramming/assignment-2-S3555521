@@ -1,6 +1,5 @@
 package main.controller;
 
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -12,7 +11,6 @@ import main.model.RegisterModel;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -71,6 +69,7 @@ public class RegisterController implements Initializable {
         } else {
             if (password1.equals(password2)) {
                 registerModel.toRegister(em_id, fName, lName, role, uName, password1, question, answer);
+                registerModel.toBlacklist(em_id);
                 status.setText("Success!");
             }
             else {
