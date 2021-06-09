@@ -784,6 +784,48 @@ public class MainEmpModel {
         }
     }
 
+    public int getBsid(int id) throws SQLException {
+        String query = "select * from blacklist where bid = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            int sid = resultSet.getInt("sid");
+            return sid;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return 0;
+    }
+
+    public Date getBdate(int id) throws SQLException {
+        String query = "select * from blacklist where bid = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            Date date = resultSet.getDate("date");
+            return date;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return null;
+    }
+
 
 
 

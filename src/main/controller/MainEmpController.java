@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import main.Account;
+import main.Bookings;
 import main.model.MainEmpModel;
 
 import java.sql.Date;
@@ -117,8 +118,9 @@ public class MainEmpController implements Initializable {
             refresh();
         }
     }
-    public void bookings(ActionEvent event) throws SQLException {
-        Date date = java.sql.Date.valueOf(datepicker.getValue());
+    public void bookings(ActionEvent event) throws Exception {
+        Bookings bookings = new Bookings();
+        bookings.showWindow();
 
     }
     public void b1(ActionEvent event) throws SQLException {
@@ -333,6 +335,7 @@ public class MainEmpController implements Initializable {
         int n14 = mainEmpModel.getS14(date);
         int n15 = mainEmpModel.getS15(date);
         int n16 = mainEmpModel.getS16(date);
+        int bsit = mainEmpModel.getBsid(Integer.parseInt(mainEmpModel.getId(current_user)));
 
         if(n1==0){
             s1.setDisable(false);
@@ -509,8 +512,51 @@ public class MainEmpController implements Initializable {
             s16.setDisable(true);
             s16.setBackground(getBackgroundRed);
         }
-
-
+        if(bsit==1){
+            s1.setDisable(true);
+        }
+        if(bsit==2){
+            s2.setDisable(true);
+        }
+        if(bsit==3){
+            s3.setDisable(true);
+        }
+        if(bsit==4){
+            s4.setDisable(true);
+        }
+        if(bsit==5){
+            s5.setDisable(true);
+        }
+        if(bsit==6){
+            s6.setDisable(true);
+        }
+        if(bsit==7){
+            s7.setDisable(true);
+        }
+        if(bsit==8){
+            s8.setDisable(true);
+        }
+        if(bsit==9){
+            s9.setDisable(true);
+        }
+        if(bsit==10){
+            s10.setDisable(true);
+        }
+        if(bsit==11){
+            s12.setDisable(true);
+        }
+        if(bsit==13){
+            s13.setDisable(true);
+        }
+        if(bsit==14){
+            s14.setDisable(true);
+        }
+        if(bsit==15){
+            s15.setDisable(true);
+        }
+        if(bsit==16){
+            s16.setDisable(true);
+        }
 
     }
 
