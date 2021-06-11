@@ -54,4 +54,5 @@ Admin can generate the report of employee list and released booking list.
 
 Finally:
 The application achieve all functions but time validation. It seems like to be complex in my validation logical.
-So, I do not achieve that function.
+So, I do not achieve that function. There are many model which I do not create, such as booking, setpassword, account.
+I writed the method in mainEmpModel and mainAmdModel. That contoller will use this two model.
