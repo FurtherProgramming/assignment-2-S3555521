@@ -25,7 +25,7 @@ public class ForgetController {
 
     public static String current_user;
     public static String now_user;
-
+    //to submit the username which want to reset password
     public void confirmUname(ActionEvent event){
         try{
             if(forgetModel.isUser(txtUname.getText())){
@@ -41,6 +41,7 @@ public class ForgetController {
     }
 
     }
+    //submit the answer
     public void confirmAnswer(ActionEvent event){
         try{
             if(forgetModel.isCorrect(txtUname.getText(),txtAnswer.getText())){

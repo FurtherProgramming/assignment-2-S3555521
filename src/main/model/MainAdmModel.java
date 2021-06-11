@@ -2,6 +2,10 @@ package main.model;
 
 import main.SQLConnection;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -230,28 +234,6 @@ public class MainAdmModel {
         }
     }
 
-    public boolean canBooking(int id) throws SQLException {
-        String query = "select * from blacklist where bid = ? and isBooking = ?";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setBoolean(2,true);
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        }catch(Exception e) {
-                return false;
-            }finally {
-                preparedStatement.close();
-                resultSet.close();
-            }
-        }
-
     public void createBooking(Date date) throws SQLException {
         String query = "insert into bookings values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = null;
@@ -279,261 +261,6 @@ public class MainAdmModel {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS1(Date date, int id) throws SQLException {
-        String query = "update bookings set sit1 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-    public void bookingS2(Date date, int id) throws SQLException {
-        String query = "update bookings set sit2 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS3(Date date, int id) throws SQLException {
-        String query = "update bookings set sit3 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS4(Date date, int id) throws SQLException {
-        String query = "update bookings set sit4 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS5(Date date, int id) throws SQLException {
-        String query = "update bookings set sit5 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS6(Date date, int id) throws SQLException {
-        String query = "update bookings set sit6 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS7(Date date, int id) throws SQLException {
-        String query = "update bookings set sit7 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS8(Date date, int id) throws SQLException {
-        String query = "update bookings set sit8 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS9(Date date, int id) throws SQLException {
-        String query = "update bookings set sit9 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS10(Date date, int id) throws SQLException {
-        String query = "update bookings set sit10 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS11(Date date, int id) throws SQLException {
-        String query = "update bookings set sit11 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS12(Date date, int id) throws SQLException {
-        String query = "update bookings set sit12 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS13(Date date, int id) throws SQLException {
-        String query = "update bookings set sit13 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS14(Date date, int id) throws SQLException {
-        String query = "update bookings set sit14 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS15(Date date, int id) throws SQLException {
-        String query = "update bookings set sit15 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public void bookingS16(Date date, int id) throws SQLException {
-        String query = "update bookings set sit16 = ? where date = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setDate(2, date);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
             preparedStatement.close();
         }
     }
@@ -874,65 +601,6 @@ public class MainAdmModel {
         return 0;
     }
 
-    public void toBlacklist(Date date, int id, int sid) throws SQLException {
-        String query = "update blacklist set sid = ? , date = ? , isBooking = ? where bid = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, sid);
-            preparedStatement.setDate(2, date);
-            preparedStatement.setBoolean(3,false);
-            preparedStatement.setInt(4,id);
-            preparedStatement.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
-    public int getBsid(int id) throws SQLException {
-        String query = "select * from blacklist where bid = ?";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            resultSet = preparedStatement.executeQuery();
-            int sid = resultSet.getInt("sid");
-            return sid;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            preparedStatement.close();
-            resultSet.close();
-        }
-
-        return 0;
-    }
-
-    public Date getBdate(int id) throws SQLException {
-        String query = "select * from blacklist where bid = ?";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            resultSet = preparedStatement.executeQuery();
-            Date date = resultSet.getDate("date");
-            return date;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            preparedStatement.close();
-            resultSet.close();
-        }
-
-        return null;
-    }
 
     public ArrayList getUsers() throws SQLException {
         String query = "select id from employee";
@@ -944,6 +612,29 @@ public class MainAdmModel {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 list.add(resultSet.getInt("id"));
+            }
+            return list;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return null;
+
+    }
+
+    public ArrayList getBids() throws SQLException {
+        String query = "select bid from blacklist";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        ArrayList list = new ArrayList();
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                list.add(resultSet.getInt("bid"));
             }
             return list;
         } catch (SQLException throwables) {
@@ -1017,6 +708,671 @@ public class MainAdmModel {
         }
     }
 
+    public void deleteBlacklist(int id) throws SQLException {
+        String query = "delete from blacklist where bid = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS1(Date date) throws SQLException {
+        String query = "update bookings set sit1 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS2(Date date) throws SQLException {
+        String query = "update bookings set sit2 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS3(Date date) throws SQLException {
+        String query = "update bookings set sit3 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS4(Date date) throws SQLException {
+        String query = "update bookings set sit4 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS5(Date date) throws SQLException {
+        String query = "update bookings set sit5 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS6(Date date) throws SQLException {
+        String query = "update bookings set sit6 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS7(Date date) throws SQLException {
+        String query = "update bookings set sit7 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS8(Date date) throws SQLException {
+        String query = "update bookings set sit8 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS9(Date date) throws SQLException {
+        String query = "update bookings set sit9 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS10(Date date) throws SQLException {
+        String query = "update bookings set sit10 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS11(Date date) throws SQLException {
+        String query = "update bookings set sit11 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS12(Date date) throws SQLException {
+        String query = "update bookings set sit12 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS13(Date date) throws SQLException {
+        String query = "update bookings set sit13 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS14(Date date) throws SQLException {
+        String query = "update bookings set sit14 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS15(Date date) throws SQLException {
+        String query = "update bookings set sit15 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void cancelS16(Date date) throws SQLException {
+        String query = "update bookings set sit16 = 0 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void lockS1(Date date) throws SQLException {
+        String query = "update bookings set sit1 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void lockS2(Date date) throws SQLException {
+        String query = "update bookings set sit2 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS3(Date date) throws SQLException {
+        String query = "update bookings set sit3 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS4(Date date) throws SQLException {
+        String query = "update bookings set sit4 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS5(Date date) throws SQLException {
+        String query = "update bookings set sit5 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS6(Date date) throws SQLException {
+        String query = "update bookings set sit6 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS7(Date date) throws SQLException {
+        String query = "update bookings set sit7 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS8(Date date) throws SQLException {
+        String query = "update bookings set sit8 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS9(Date date) throws SQLException {
+        String query = "update bookings set sit9 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS10(Date date) throws SQLException {
+        String query = "update bookings set sit10 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS11(Date date) throws SQLException {
+        String query = "update bookings set sit11 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS12(Date date) throws SQLException {
+        String query = "update bookings set sit12 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS13(Date date) throws SQLException {
+        String query = "update bookings set sit13 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS14(Date date) throws SQLException {
+        String query = "update bookings set sit14 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS15(Date date) throws SQLException {
+        String query = "update bookings set sit15 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+    public void lockS16(Date date) throws SQLException {
+        String query = "update bookings set sit16 = 99 where date = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void createRelease(Date date,int s1, int s2, int s3, int s4, int s5, int s6, int s7, int s8, int s9, int s10, int s11, int s12, int s13, int s14, int s15, int s16) throws SQLException {
+        String query = "insert into release values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            preparedStatement.setInt(2, s1);
+            preparedStatement.setInt(3, s2);
+            preparedStatement.setInt(4, s3);
+            preparedStatement.setInt(5, s4);
+            preparedStatement.setInt(6, s5);
+            preparedStatement.setInt(7, s6);
+            preparedStatement.setInt(8, s7);
+            preparedStatement.setInt(9, s8);
+            preparedStatement.setInt(10, s9);
+            preparedStatement.setInt(11, s10);
+            preparedStatement.setInt(12, s11);
+            preparedStatement.setInt(13, s12);
+            preparedStatement.setInt(14, s13);
+            preparedStatement.setInt(15, s14);
+            preparedStatement.setInt(16, s15);
+            preparedStatement.setInt(17, s16);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+        }
+    }
+
+    public void employeeList() throws IOException, SQLException {
+        File file =new File("C://employees.csv");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        String query = "select * from employee";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String sName = resultSet.getString("sure name");
+                String role = resultSet.getString("role");
+                String uName = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String question = resultSet.getString("question");
+                String answer = resultSet.getString("answer");
+                Boolean admin = resultSet.getBoolean("admin");
+                String str = "id:" + id + " firstname:" +name + " lastname:" + sName + " role:"+ role + " username:" + uName + " password:" + password + " question:" + question + " answer:" + answer + " admin:" + admin.toString();
+                writer.write(str);
+                writer.newLine();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            writer.close();
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+
+    public void releaseList() throws IOException, SQLException {
+        File file =new File("C://released bookings.csv");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        String query = "select * from release";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                Date date = resultSet.getDate("date");
+                String  s1 = Integer.toString(resultSet.getInt("sit1"));
+                String  s2 = Integer.toString(resultSet.getInt("sit2"));
+                String  s3 = Integer.toString(resultSet.getInt("sit3"));
+                String  s4 = Integer.toString(resultSet.getInt("sit4"));
+                String  s5 = Integer.toString(resultSet.getInt("sit5"));
+                String  s6 = Integer.toString(resultSet.getInt("sit6"));
+                String  s7 = Integer.toString(resultSet.getInt("sit7"));
+                String  s8 = Integer.toString(resultSet.getInt("sit8"));
+                String  s9 = Integer.toString(resultSet.getInt("sit9"));
+                String  s10 = Integer.toString(resultSet.getInt("sit10"));
+                String  s11 = Integer.toString(resultSet.getInt("sit11"));
+                String  s12 = Integer.toString(resultSet.getInt("sit12"));
+                String  s13 = Integer.toString(resultSet.getInt("sit13"));
+                String  s14 = Integer.toString(resultSet.getInt("sit14"));
+                String  s15 = Integer.toString(resultSet.getInt("sit15"));
+                String  s16 = Integer.toString(resultSet.getInt("sit16"));
+                String str = "date:" + date.toString() + " sit1: " + s1 + " sit2: " + s2 + " sit3: " + s3 + " sit4: " + s4 + " sit5: " + s5 + " sit6: " + s6 + " sit7: " + s7 + " sit8: " + s8 + " sit9: " + s9 + " sit10: " + s10 + " sit11: " + s11 + " sit12: " + s12 + " sit13: " + s13 + " sit14: " + s14 + " sit15: " + s15 + " sit16: " + s16;
+                writer.write(str);
+                writer.newLine();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            writer.close();
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public int getBsid(int id) throws SQLException {
+        String query = "select * from blacklist where bid = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            int sid = resultSet.getInt("sid");
+            return sid;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return 0;
+    }
+
+    public Date getBdate(int id) throws SQLException {
+        String query = "select * from blacklist where bid = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            Date date = resultSet.getDate("date");
+            return date;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return null;
+    }
+
+    public Boolean getAvailable(int id) throws SQLException {
+        String query = "select * from blacklist where bid = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            return resultSet.getBoolean("isBooking");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+
+        return null;
+    }
+
+    public void blacklistUpdate(int bid, Date date, int sid, Boolean is) throws SQLException {
+        String query = "update blacklist set date = ?, sid = ?, isBooking = ? where bid = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1,date);
+            preparedStatement.setInt(2,sid);
+            preparedStatement.setBoolean(3,is);
+            preparedStatement.setInt(4,bid);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
 
 
 

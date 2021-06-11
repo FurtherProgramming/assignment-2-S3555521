@@ -48,11 +48,12 @@ public class AccountController implements Initializable{
             throwables.printStackTrace();
         }
     }
-
+    //reset password
     public void reset(ActionEvent event) throws Exception {
         SetPassword setPassword = new SetPassword();
         setPassword.showWindow();
     }
+    //back button
     public void back(ActionEvent event) {
         Stage stage = (Stage) labId.getScene().getWindow();
         stage.close();

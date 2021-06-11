@@ -826,9 +826,379 @@ public class MainEmpModel {
         return null;
     }
 
+    public void toIsBookings(int id, Boolean is) throws SQLException {
+        String query = "update blacklist set isBooking = ? where bid = ?";
+        PreparedStatement preparedStatement = null;
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setBoolean(1, is);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            preparedStatement.close();
+        }
+    }
 
 
+    public Boolean isReleaseDate(Date date) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
 
+    public Boolean isReleaseS1(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit1")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS2(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit2")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS3(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit3")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS4(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit4")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS5(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit5")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS6(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit6")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS7(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit7")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS8(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit8")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS9(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit9")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS10(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit10")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS11(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit11")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS12(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit12")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS13(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit13")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS14(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit14")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS15(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit15")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public Boolean isReleaseS16(Date date,int id) throws SQLException {
+        String query = "select * from release where date = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, date);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt("sit16")==id) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e) {
+            return false;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
 
 
 }

@@ -34,7 +34,7 @@ public class SetPasswordController implements Initializable {
             current_user = forgetController.now_user();
         }
     }
-
+    //update the password to employee
     public void setPassword(ActionEvent event){
         try{
             if(txtPassword1.getText().equals(txtPassword2.getText())){

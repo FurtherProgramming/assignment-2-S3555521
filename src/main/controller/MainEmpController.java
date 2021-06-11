@@ -11,12 +11,12 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import main.Account;
 import main.Bookings;
+import main.model.MainAdmModel;
 import main.model.MainEmpModel;
 
 import java.sql.Date;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -72,9 +72,13 @@ public class MainEmpController implements Initializable {
 
 
     public static String current_user;
+    public static String bookingStatus;
+    public static Boolean canDelete;
     LoginController loginController = new LoginController();
     MainEmpModel mainEmpModel = new MainEmpModel();
+    MainAdmModel mainadmModel = new MainAdmModel();
 
+    //set all sit button disable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         current_user = loginController.current_user();
@@ -98,17 +102,29 @@ public class MainEmpController implements Initializable {
         s14.setDisable(true);
         s15.setDisable(true);
         s16.setDisable(true);
+        //try {
+            //timeValidation();
+       //} catch (SQLException throwables) {
+            //throwables.printStackTrace();
+        //}
+        try {
+            validation();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
 
     }
 
 
 
-
+    //show account information
     public void account(ActionEvent event) throws Exception {
         Account account = new Account();
         account.showWindow();
 
     }
+    //choose the date , if null then create new one
     public void choose(ActionEvent event) throws SQLException {
         Date date = java.sql.Date.valueOf(datepicker.getValue());
         if(mainEmpModel.isBooking(date))
@@ -118,11 +134,13 @@ public class MainEmpController implements Initializable {
             refresh();
         }
     }
+    //show the bookings
     public void bookings(ActionEvent event) throws Exception {
         Bookings bookings = new Bookings();
         bookings.showWindow();
 
     }
+    //sit button
     public void b1(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
@@ -137,7 +155,7 @@ public class MainEmpController implements Initializable {
     public void b2(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS2(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),2);
             refresh();
             status.setText("Success");
@@ -150,7 +168,7 @@ public class MainEmpController implements Initializable {
     public void b3(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS3(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),3);
             refresh();
             status.setText("Success");
@@ -162,7 +180,7 @@ public class MainEmpController implements Initializable {
     public void b4(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS4(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),4);
             refresh();
             status.setText("Success");
@@ -174,7 +192,7 @@ public class MainEmpController implements Initializable {
     public void b5(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS5(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),5);
             refresh();
             status.setText("Success");
@@ -186,7 +204,7 @@ public class MainEmpController implements Initializable {
     public void b6(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS6(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),6);
             refresh();
             status.setText("Success");
@@ -198,7 +216,7 @@ public class MainEmpController implements Initializable {
     public void b7(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS7(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),7);
             refresh();
             status.setText("Success");
@@ -210,7 +228,7 @@ public class MainEmpController implements Initializable {
     public void b8(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS8(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),8);
             refresh();
             status.setText("Success");
@@ -222,7 +240,7 @@ public class MainEmpController implements Initializable {
     public void b9(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS9(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),9);
             refresh();
             status.setText("Success");
@@ -234,7 +252,7 @@ public class MainEmpController implements Initializable {
     public void b10(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS10(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),10);
             refresh();
             status.setText("Success");
@@ -246,7 +264,7 @@ public class MainEmpController implements Initializable {
     public void b11(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS11(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),11);
             refresh();
             status.setText("Success");
@@ -258,7 +276,7 @@ public class MainEmpController implements Initializable {
     public void b12(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS12(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),12);
             refresh();
             status.setText("Success");
@@ -270,7 +288,7 @@ public class MainEmpController implements Initializable {
     public void b13(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS13(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),13);
             refresh();
             status.setText("Success");
@@ -282,7 +300,7 @@ public class MainEmpController implements Initializable {
     public void b14(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS14(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),14);
             refresh();
             status.setText("Success");
@@ -294,7 +312,7 @@ public class MainEmpController implements Initializable {
     public void b15(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS15(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),15);
             refresh();
             status.setText("Success");
@@ -306,7 +324,7 @@ public class MainEmpController implements Initializable {
     public void b16(ActionEvent event) throws SQLException {
         if(mainEmpModel.canBooking(Integer.parseInt(mainEmpModel.getId(current_user)))) {
             Date date = java.sql.Date.valueOf(datepicker.getValue());
-            mainEmpModel.bookingS1(date, Integer.parseInt(mainEmpModel.getId(current_user)));
+            mainEmpModel.bookingS16(date, Integer.parseInt(mainEmpModel.getId(current_user)));
             mainEmpModel.toBlacklist(date,Integer.parseInt(mainEmpModel.getId(current_user)),16);
             refresh();
             status.setText("Success");
@@ -315,7 +333,55 @@ public class MainEmpController implements Initializable {
         }
 
     }
+    //time validation(not finish)
+    public void timeValidation() throws SQLException {
+        int bsit = mainEmpModel.getBsid(Integer.parseInt(mainEmpModel.getId(current_user)));
+        Date bookingDate = mainEmpModel.getBdate(bsit);
+        Date now = new Date(System.currentTimeMillis());
+        long diff = now.getTime()-bookingDate.getTime();
+        long days = diff / (1000 * 60 * 60 * 24);
+        if(mainEmpModel.isReleaseDate(bookingDate))
+        {
+            mainEmpModel.toIsBookings(Integer.parseInt(mainEmpModel.getId(current_user)),true);
+            if(bsit==1){
+                if(mainEmpModel.isReleaseS1(bookingDate,Integer.parseInt(mainEmpModel.getId(current_user)))){
+                    bookingStatus = "accept";
+                    canDelete = false;
+                }else {
+                    bookingStatus = "reject";
+                    canDelete = false;
+                }
 
+            }
+        }else {
+            if(days > 2){
+                if(bsit==1){
+                    mainadmModel.cancelS1(bookingDate);
+                    bookingStatus = "auto canceled";
+                    canDelete = false;
+                }
+            }else{
+                bookingStatus = "processing";
+            }
+        }
+
+    }
+    //validation of if user can have new booking
+    public void validation() throws SQLException {
+        Date date = mainEmpModel.getBdate(Integer.parseInt(mainEmpModel.getId(current_user)));
+        if(mainEmpModel.isReleaseDate(date)){
+            mainEmpModel.toIsBookings(Integer.parseInt(mainEmpModel.getId(current_user)),true);
+        }
+    }
+
+    public Boolean getCanDelete(){
+        return canDelete;
+    }
+
+    public String getBookingStatus(){
+        return bookingStatus;
+    }
+    //refresh the sit button
     public void refresh() throws SQLException {
         Date date = java.sql.Date.valueOf(datepicker.getValue());
         status.setText(date.toString());

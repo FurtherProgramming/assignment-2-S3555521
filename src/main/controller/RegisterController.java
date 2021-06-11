@@ -51,7 +51,7 @@ public class RegisterController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
     }
-
+    //new employee
     public void Register(ActionEvent Register) {
         fName = txtFname.getText();
         lName = txtLname.getText();
@@ -77,6 +77,7 @@ public class RegisterController implements Initializable {
             }
         }
     }
+    //go back
     public void Back(ActionEvent Register) {
         Stage stage = (Stage) status.getScene().getWindow();
         stage.close();

@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    //register button
     public void Register(ActionEvent event) throws Exception {
 
         Register register = new Register();
@@ -85,14 +85,14 @@ public class LoginController implements Initializable {
 
 
     }
-
+    //forget password button
     public void Forget(ActionEvent event) throws Exception {
 
         Forget forget = new Forget();
         forget.showWindow();
 
     }
-
+    //remember who is login
     public String current_user(){
         return current_user;
     }
