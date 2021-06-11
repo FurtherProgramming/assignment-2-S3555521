@@ -1,6 +1,8 @@
 # Readme
 
-This application is finish by Zhouo Haopeng
+This application is builded by Zhouo Haopeng
+
+Student ID: s3555521
 
 ## How to run the application
  
