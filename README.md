@@ -8,6 +8,8 @@ Student ID: s3555521
  
 Click the main class in the /src/main, the application will run.
 
+If user do not log in, other class will not work. There is a user authentication.
+
 There are 3 button which can do login, register and forgetpassword.
 
 When you log in, there will a session create by the username, which will use for the booking system.
